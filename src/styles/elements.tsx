@@ -9,3 +9,12 @@ export const Content = styled.div`
   align-items: center;
   background-color: var(--light-gray);
 `;
+
+export const Page = styled.div`
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+`;
