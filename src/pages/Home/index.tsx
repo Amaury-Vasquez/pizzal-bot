@@ -1,12 +1,12 @@
 import React from "react";
 
-import { HomePage } from "./styles";
+import { Page } from "../../styles/elements";
 import { Chat } from "../../components/Chat";
 
 export const Home = () => {
   return (
-    <HomePage>
+    <Page>
       <Chat />
-    </HomePage>
+    </Page>
   );
 };
