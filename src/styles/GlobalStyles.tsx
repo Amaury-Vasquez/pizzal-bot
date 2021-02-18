@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyles = createGlobalStyle`
   html {
     box-sizing: border-box;
-    --gray: #d4e3e6;;
+    --gray: #d4e3e6;
     --white: #f4f9f9;
     --green: #c7ffd8;
     --shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
