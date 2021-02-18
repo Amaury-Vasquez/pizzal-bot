@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import { Box } from "./styles";
-import { ChatContact } from "../ChatContact";
-import { ResponseValues } from "../../interfaces/index";
+import { Box } from './styles';
+import { ChatContact } from '../ChatContact';
+import { ResponseValues } from '../../interfaces/index';
 
 export const ContactsContainer = (props: {
   contacts: Array<ResponseValues>;

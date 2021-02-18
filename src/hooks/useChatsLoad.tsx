@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import { ResponseValues, MessageValues } from "../interfaces/index";
+import { ResponseValues, MessageValues } from '../interfaces/index';
 
 export const useChatsLoad = () => {
   // Const
-  const contactsUrl = "http://localhost:1337/api/conversations";
+  const contactsUrl = 'http://localhost:1337/api/conversations';
 
   // State
   const [update, setUpdate] = useState(true);
@@ -25,7 +25,7 @@ export const useChatsLoad = () => {
         const response = await request.json();
         setContacts(() => response);
       } catch {
-        console.log("Error while fetching contacts info");
+        console.log('Error while fetching contacts info');
       }
     };
     if (update) {
@@ -42,7 +42,7 @@ export const useChatsLoad = () => {
           const response = await request.json();
           setChats((arr) => [...arr, response]);
         } catch {
-          console.log("Error while fetching chats info");
+          console.log('Error while fetching chats info');
         }
       });
     };

@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React from 'react';
 
-import { Container } from "./styles";
-import { Page } from "../../styles/elements";
-import { Chat } from "../../components/Chat";
-import { ContactsContainer } from "../../components/ContactsContainer";
-import { useChatsLoad } from "../../hooks/useChatsLoad";
+import { Container } from './styles';
+import { Page } from '../../styles/elements';
+import { Chat } from '../../components/Chat';
+import { ContactsContainer } from '../../components/ContactsContainer';
+import { useChatsLoad } from '../../hooks/useChatsLoad';
 
 export const Home = () => {
   const { activeChat, contacts, callback } = useChatsLoad();

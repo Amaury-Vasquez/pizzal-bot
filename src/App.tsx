@@ -1,12 +1,13 @@
-import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import { GlobalStyles } from "./styles/GlobalStyles";
-import { Home } from "./pages/Home";
-import AppContext from "./Context";
-import { useInitialState } from "./hooks/useInitialState";
-import { ProtectedRoute } from "./components/ProtectedRoute";
-import { UserAuth } from "./pages/UserAuth";
+import { GlobalStyles } from './styles/GlobalStyles';
+import { Home } from './pages/Home';
+import AppContext from './Context';
+import { useInitialState } from './hooks/useInitialState';
+import { ProtectedRoute } from './components/ProtectedRoute';
+import { UserAuth } from './pages/UserAuth';
+
 function App() {
   const initialState = useInitialState();
 

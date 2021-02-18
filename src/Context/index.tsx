@@ -1,6 +1,6 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
-import { ContextValues } from "../interfaces";
+import { ContextValues } from '../interfaces';
 
 const AppContext = createContext<ContextValues>({});
 

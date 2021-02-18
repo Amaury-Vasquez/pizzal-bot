@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const MessageBox = styled.div<{ incoming: boolean }>`
   display: flex;
@@ -9,7 +9,7 @@ export const MessageBox = styled.div<{ incoming: boolean }>`
   text-align: left;
   padding: 15px;
   background-color: ${(props) =>
-    props.incoming ? "var(--gray)" : "var(--green)"};
+    props.incoming ? 'var(--gray)' : 'var(--green)'};
   margin-bottom: 1vh;
   border-radius: 2px;
 `;

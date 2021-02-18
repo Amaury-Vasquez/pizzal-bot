@@ -1,8 +1,8 @@
-import React, { Fragment, useContext, useState } from "react";
-import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
+import React, { Fragment, useContext, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
 
-import AppContext from "../../Context";
+import AppContext from '../../Context';
 import {
   AuthScreen,
   AuthForm,
@@ -13,45 +13,45 @@ import {
   Tab,
   TabText,
   TabSelection,
-} from "./styles";
+} from './styles';
 
 export const Auth = () => {
   let history = useHistory();
   const { register, errors, handleSubmit } = useForm();
-  const [activeTab, setTab] = useState("login");
+  const [activeTab, setTab] = useState('login');
   const { setAuth } = useContext(AppContext);
 
   const onSubmit = () => {
     if (setAuth) setAuth(true);
-    history.push("/");
+    history.push('/');
   };
 
   return (
     <AuthScreen>
       <TabSelection>
-        <Tab active={activeTab === "login"} onClick={() => setTab("login")}>
-          <TabText> {"login"} </TabText>
+        <Tab active={activeTab === 'login'} onClick={() => setTab('login')}>
+          <TabText> {'login'} </TabText>
         </Tab>
         <Tab
-          active={activeTab === "register"}
-          onClick={() => setTab("register")}
+          active={activeTab === 'register'}
+          onClick={() => setTab('register')}
         >
-          <TabText> {"register"} </TabText>
+          <TabText> {'register'} </TabText>
         </Tab>
       </TabSelection>
       <AuthForm onSubmit={handleSubmit(onSubmit)}>
-        <InputName> {"email"} </InputName>{" "}
+        <InputName> {'email'} </InputName>{' '}
         <InputError>
-          {errors.email ? "* this field is required" : "*"}
+          {errors.email ? '* this field is required' : '*'}
         </InputError>
         <Input
           name="email"
           placeholder="youremail@example.com"
           ref={register({ required: true })}
         />
-        <InputName> {"password"} </InputName>{" "}
+        <InputName> {'password'} </InputName>{' '}
         <InputError>
-          {errors.password ? "* this field is required" : "*"}
+          {errors.password ? '* this field is required' : '*'}
         </InputError>
         <Input
           type="password"
@@ -59,11 +59,11 @@ export const Auth = () => {
           placeholder="**********"
           ref={register({ required: true })}
         />
-        {activeTab === "register" ? (
+        {activeTab === 'register' ? (
           <Fragment>
-            <InputName> {"username"} </InputName>
+            <InputName> {'username'} </InputName>
             <InputError>
-              {errors.email ? "* this field is required" : "*"}
+              {errors.email ? '* this field is required' : '*'}
             </InputError>
             <Input
               name="username"

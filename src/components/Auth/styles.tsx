@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const AuthScreen = styled.div`
   width: 25vw;
@@ -24,8 +24,8 @@ export const Tab = styled.div<{ active: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${(props) => (props.active ? "" : "var(--white)")};
-  opacity: ${(props) => (props.active ? "1" : "0.5")};
+  background-color: ${(props) => (props.active ? '' : 'var(--white)')};
+  opacity: ${(props) => (props.active ? '1' : '0.5')};
   &:hover {
     cursor: pointer;
   }

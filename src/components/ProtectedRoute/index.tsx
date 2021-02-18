@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { Redirect, Route, RouteProps } from "react-router-dom";
-import App from "../../App";
+import React, { useContext } from 'react';
+import { Redirect, Route, RouteProps } from 'react-router-dom';
+import App from '../../App';
 
-import AppContext from "../../Context/index";
+import AppContext from '../../Context/index';
 
 export const ProtectedRoute = (props: RouteProps) => {
   const { path, component } = props;
@@ -10,6 +10,6 @@ export const ProtectedRoute = (props: RouteProps) => {
   return isAuth ? (
     <Route path={path} component={component} />
   ) : (
-    <Redirect to={{ pathname: "/login" }} />
+    <Redirect to={{ pathname: '/login' }} />
   );
 };
