@@ -1,9 +1,9 @@
-import React from "react";
-import { FaWhatsapp, FaFacebook, FaUserAlt } from "react-icons/fa";
-import { GrStatusUnknown } from "react-icons/gr";
+import React from 'react';
+import { FaWhatsapp, FaFacebook, FaUserAlt } from 'react-icons/fa';
+import { GrStatusUnknown } from 'react-icons/gr';
 
-import { Contact, UserInfo } from "./styles";
-import { ResponseValues } from "../../interfaces/index";
+import { Contact, UserInfo } from './styles';
+import { ResponseValues } from '../../interfaces/index';
 
 export const ChatContact = (props: ResponseValues & { onClick: Function }) => {
   const { name, lastName, conversation, fbId, id, phone, onClick } = props;
@@ -14,12 +14,16 @@ export const ChatContact = (props: ResponseValues & { onClick: Function }) => {
       }}
     >
       <FaUserAlt />
-      <UserInfo>{`${name ? name : "Unknown"} ${
-        lastName ? lastName : "Unknown"
-      }`}</UserInfo>
-      {conversation.source === "facebook" ? (
+      <UserInfo>
+        {name || lastName
+          ? `${name ? name : ''} ${lastName ? lastName : ''}`
+          : phone
+          ? `+${phone}`
+          : 'unknown contact'}
+      </UserInfo>
+      {conversation.source === 'facebook' ? (
         <FaFacebook />
-      ) : conversation.source === "whatsapp" ? (
+      ) : conversation.source === 'whatsapp' ? (
         <FaWhatsapp />
       ) : (
         <GrStatusUnknown />
