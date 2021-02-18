@@ -19,7 +19,7 @@ export interface ResponseValues {
 
 export interface MessageValues {
   id: number;
-  sendby: string;
+  sendBy: string;
   timestamp: string;
   message: {
     text: string;
