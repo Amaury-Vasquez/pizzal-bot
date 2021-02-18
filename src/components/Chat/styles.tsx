@@ -1,15 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 50vw;
+  width: 35vw;
   height: 70vh;
-  box-shadow: var(--shadow);
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 9fr 1fr;
   grid-gap: 2vh;
   padding: 20px;
-  background-color: var(--white);
   border-radius: 5px;
 `;
 
@@ -18,6 +16,9 @@ export const ChatBox = styled.div`
   height: 100%;
   padding: 10px;
   overflow-y: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const InputBox = styled.form`
