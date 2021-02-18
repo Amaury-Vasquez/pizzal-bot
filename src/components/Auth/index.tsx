@@ -22,8 +22,8 @@ export const Auth = () => {
   const { setAuth } = useContext(AppContext);
 
   const onSubmit = () => {
-    history.push("/");
     if (setAuth) setAuth(true);
+    history.push("/");
   };
 
   return (
