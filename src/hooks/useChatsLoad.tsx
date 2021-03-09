@@ -2,12 +2,10 @@ import { useEffect, useState } from 'react';
 
 import { ResponseValues, MessageValues } from '../interfaces/index';
 
-export const useChatsLoad = () => {
-  // Const
-  const contactsUrl = 'http://localhost:1337/api/conversations';
-
+export const useChatsLoad = (token: string, url: string | undefined) => {
   // State
-  const [update, setUpdate] = useState(true);
+  const [update, setUpdate] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   const [contacts, setContacts] = useState<Array<ResponseValues>>([]);
   const [chats, setChats] = useState<Array<Array<MessageValues>>>([[]]);
   const [activeChat, setActive] = useState<Array<MessageValues>>([]);
@@ -19,11 +17,24 @@ export const useChatsLoad = () => {
 
   // Effects
   useEffect(() => {
+    if (token !== '') setUpdate(true);
+  }, [token, setUpdate]);
+
+  useEffect(() => {
     const fetchContacts = async () => {
       try {
-        const request = await fetch(contactsUrl);
+        console.log('prueba' + token);
+        const request = await fetch(`${url}/api/conversations`, {
+          method: 'GET',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + token,
+          },
+        });
         const response = await request.json();
         setContacts(() => response);
+        setLoaded(true);
       } catch {
         console.log('Error while fetching contacts info');
       }
@@ -38,7 +49,18 @@ export const useChatsLoad = () => {
     const fetchChats = () => {
       contacts.forEach(async (item) => {
         try {
-          const request = await fetch(`${contactsUrl}/${item.id}/messages`);
+          const request = await fetch(
+            `${url}/api/conversations/${item.id}/messages`,
+            {
+              method: 'GET', // *GET, POST, PUT, DELETE, etc.
+              mode: 'cors',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token,
+              },
+            },
+          );
           const response = await request.json();
           setChats((arr) => [...arr, response]);
         } catch {
@@ -49,5 +71,5 @@ export const useChatsLoad = () => {
     if (contacts.length > 0) fetchChats();
   }, [contacts]);
 
-  return { activeChat, contacts, callback };
+  return { activeChat, contacts, callback, loaded };
 };
