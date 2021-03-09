@@ -19,10 +19,11 @@ export const Auth = () => {
   let history = useHistory();
   const { register, errors, handleSubmit } = useForm();
   const [activeTab, setTab] = useState('login');
-  const { setAuth } = useContext(AppContext);
+  const { authUser } = useContext(AppContext);
 
-  const onSubmit = () => {
-    if (setAuth) setAuth(true);
+  const onSubmit = (data: {}) => {
+    if (authUser)
+      authUser(data, activeTab === 'register' ? 'sign-up' : 'sign-in');
     history.push('/');
   };
 
@@ -40,13 +41,13 @@ export const Auth = () => {
         </Tab>
       </TabSelection>
       <AuthForm onSubmit={handleSubmit(onSubmit)}>
-        <InputName> {'email'} </InputName>{' '}
+        <InputName> {'username'} </InputName>{' '}
         <InputError>
-          {errors.email ? '* this field is required' : '*'}
+          {errors.username ? '* this field is required' : '*'}
         </InputError>
         <Input
-          name="email"
-          placeholder="youremail@example.com"
+          name="username"
+          placeholder="random-user"
           ref={register({ required: true })}
         />
         <InputName> {'password'} </InputName>{' '}
@@ -61,13 +62,22 @@ export const Auth = () => {
         />
         {activeTab === 'register' ? (
           <Fragment>
-            <InputName> {'username'} </InputName>
+            <InputName> {'name'} </InputName>
             <InputError>
-              {errors.email ? '* this field is required' : '*'}
+              {errors.name ? '* this field is required' : '*'}
             </InputError>
             <Input
-              name="username"
-              placeholder="newuser"
+              name="name"
+              placeholder="Leo"
+              ref={register({ required: true })}
+            />
+            <InputName> {'lastName'} </InputName>
+            <InputError>
+              {errors.lastName ? '* this field is required' : '*'}
+            </InputError>
+            <Input
+              name="lastName"
+              placeholder="Messi"
               ref={register({ required: true })}
             />
           </Fragment>
