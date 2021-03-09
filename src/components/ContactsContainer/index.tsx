@@ -1,15 +1,17 @@
 import React from 'react';
 
-import { Box } from './styles';
+import { Box, LoaderContainer } from './styles';
 import { ChatContact } from '../ChatContact';
 import { ResponseValues } from '../../interfaces/index';
+import { Loader } from '../Loader';
 
 export const ContactsContainer = (props: {
   contacts: Array<ResponseValues>;
   callback: Function;
+  loaded: boolean;
 }) => {
-  const { contacts, callback } = props;
-  return (
+  const { contacts, callback, loaded } = props;
+  return loaded ? (
     <Box>
       {contacts.map((item) => (
         <ChatContact
@@ -24,5 +26,9 @@ export const ContactsContainer = (props: {
         />
       ))}
     </Box>
+  ) : (
+    <LoaderContainer>
+      <Loader />
+    </LoaderContainer>
   );
 };
