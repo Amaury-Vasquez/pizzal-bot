@@ -6,8 +6,8 @@ import AppContext from '../../Context/index';
 
 export const ProtectedRoute = (props: RouteProps) => {
   const { path, component } = props;
-  const { isAuth } = useContext(AppContext);
-  return isAuth ? (
+  const { isDeviceAuth } = useContext(AppContext);
+  return isDeviceAuth ? (
     <Route path={path} component={component} />
   ) : (
     <Redirect to={{ pathname: '/login' }} />
