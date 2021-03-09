@@ -1,6 +1,10 @@
 export interface ContextValues {
-  isAuth?: boolean;
-  setAuth?: Function;
+  isDeviceAuth?: boolean;
+  setDeviceAuth?: Function;
+  authUser?: Function;
+  token?: { jwt: string };
+  isUserAuth?: boolean;
+  url?: string;
 }
 
 export interface AuthFormValues {
