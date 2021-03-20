@@ -52,7 +52,7 @@ export const useChatsLoad = (token: string, url: string | undefined) => {
           const request = await fetch(
             `${url}/api/conversations/${item.id}/messages`,
             {
-              method: 'GET', // *GET, POST, PUT, DELETE, etc.
+              method: 'GET',
               mode: 'cors',
               headers: {
                 Accept: 'application/json',
