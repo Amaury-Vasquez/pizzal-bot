@@ -13,7 +13,7 @@ export const Content = styled.div`
 export const Page = styled.div`
   display: flex;
   width: 100vw;
-  height: 100vh;
+  height: 94vh;
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
