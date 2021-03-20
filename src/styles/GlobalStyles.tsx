@@ -7,6 +7,7 @@ export const GlobalStyles = createGlobalStyle`
     --white: #f4f9f9;
     --green: #c7ffd8;
     --shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    --red: #e84545;
   }
 
   *, *:before, *:after {
