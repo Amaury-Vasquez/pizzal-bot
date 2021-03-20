@@ -5,6 +5,7 @@ import AppContext from './Context';
 import { Home } from './pages/Home';
 import { UserAuth } from './pages/UserAuth';
 import { NotFound } from './pages/NotFound';
+import { Layout } from './components/Layout';
 import { GlobalStyles } from './styles/GlobalStyles';
 import { useInitialState } from './hooks/useInitialState';
 import { ProtectedRoute } from './components/ProtectedRoute';
@@ -16,11 +17,13 @@ function App() {
     <AppContext.Provider value={initialState}>
       <GlobalStyles />
       <BrowserRouter>
-        <Switch>
-          <ProtectedRoute exact path="/" component={Home} />
-          <Route exact path="/login" component={UserAuth} />
-          <Route path="*" component={NotFound} />
-        </Switch>
+        <Layout>
+          <Switch>
+            <ProtectedRoute exact path="/" component={Home} />
+            <Route exact path="/login" component={UserAuth} />
+            <Route path="*" component={NotFound} />
+          </Switch>
+        </Layout>
       </BrowserRouter>
     </AppContext.Provider>
   );
