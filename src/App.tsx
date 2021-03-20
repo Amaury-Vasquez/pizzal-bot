@@ -1,12 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import { GlobalStyles } from './styles/GlobalStyles';
-import { Home } from './pages/Home';
 import AppContext from './Context';
+import { Home } from './pages/Home';
+import { UserAuth } from './pages/UserAuth';
+import { NotFound } from './pages/NotFound';
+import { GlobalStyles } from './styles/GlobalStyles';
 import { useInitialState } from './hooks/useInitialState';
 import { ProtectedRoute } from './components/ProtectedRoute';
-import { UserAuth } from './pages/UserAuth';
 
 function App() {
   const initialState = useInitialState();
@@ -18,6 +19,7 @@ function App() {
         <Switch>
           <ProtectedRoute exact path="/" component={Home} />
           <Route exact path="/login" component={UserAuth} />
+          <Route path="*" component={NotFound} />
         </Switch>
       </BrowserRouter>
     </AppContext.Provider>
