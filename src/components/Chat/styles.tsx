@@ -17,7 +17,12 @@ export const ChatBox = styled.div`
   padding: 10px;
   overflow-y: scroll;
   ::-webkit-scrollbar {
-    display: none;
+    background: inherit;
+    width: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--gray);
+    border-radius: 20px;
   }
 `;
 
