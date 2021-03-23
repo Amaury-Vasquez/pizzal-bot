@@ -1,6 +1,7 @@
 export interface ContextValues {
   isDeviceAuth?: boolean;
   setDeviceAuth?: Function;
+  userLogout?: Function;
   authUser?: Function;
   token?: { jwt: string };
   isUserAuth?: boolean;
@@ -26,7 +27,8 @@ export interface MessageValues {
   sendBy: string;
   timestamp: string;
   message: {
-    text: string;
+    text?: string;
+    url?: string;
     type: string;
   };
 }
