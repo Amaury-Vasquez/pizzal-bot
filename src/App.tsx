@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import AppContext from './Context';
@@ -8,6 +8,7 @@ import { NotFound } from './pages/NotFound';
 import { Layout } from './components/Layout';
 import { GlobalStyles } from './styles/GlobalStyles';
 import { useInitialState } from './hooks/useInitialState';
+import { LoadingScreen } from './components/LoadingScreen';
 import { ProtectedRoute } from './components/ProtectedRoute';
 
 function App() {
@@ -18,11 +19,13 @@ function App() {
       <GlobalStyles />
       <BrowserRouter>
         <Layout>
-          <Switch>
-            <ProtectedRoute exact path="/" component={Home} />
-            <Route exact path="/login" component={UserAuth} />
-            <Route path="*" component={NotFound} />
-          </Switch>
+          <Suspense fallback={<LoadingScreen />}>
+            <Switch>
+              <ProtectedRoute exact path="/" component={Home} />
+              <Route exact path="/login" component={UserAuth} />
+              <Route path="*" component={NotFound} />
+            </Switch>
+          </Suspense>
         </Layout>
       </BrowserRouter>
     </AppContext.Provider>
