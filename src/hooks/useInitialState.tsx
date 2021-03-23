@@ -25,7 +25,6 @@ export const useInitialState = () => {
           }),
         });
         const response = await request.json();
-        console.log(response);
         return response;
       } catch (err) {
         console.log(err);
@@ -60,5 +59,17 @@ export const useInitialState = () => {
       console.log(err);
     }
   };
-  return { token, url, isUserAuth, authUser, isDeviceAuth, setDeviceAuth };
+
+  const userLogout = () => {
+    setUserAuth(false);
+    setToken(undefined);
+  };
+  return {
+    token,
+    url,
+    isUserAuth,
+    authUser,
+    isDeviceAuth,
+    userLogout,
+  };
 };
