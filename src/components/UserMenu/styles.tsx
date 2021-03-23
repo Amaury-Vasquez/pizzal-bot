@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const Menu = styled.div`
   width: 8vw;
-  height: 6vh;
+  min-height: 5vh;
+  height: auto;
   border: 1px solid var(--gray);
   border-top: none;
   display: grid;
@@ -17,7 +18,17 @@ export const Button = styled.button`
   height: 100%;
   text-align: center;
   text-transform: capitalize;
-  color: var(--red);
-  font-size: 16px;
+  display: flex;
   cursor: pointer;
+  & > span {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 16px;
+    & > svg {
+      color: var(--red);
+    }
+  }
 `;
