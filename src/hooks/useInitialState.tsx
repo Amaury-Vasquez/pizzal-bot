@@ -12,7 +12,7 @@ export const useInitialState = () => {
         const request = await fetch(`${url}/auth/device`, {
           method: 'POST',
           mode: 'cors',
-          cache: 'no-cache',
+          cache: 'default',
           credentials: 'same-origin',
           headers: {
             'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ export const useInitialState = () => {
       const request = await fetch(`${url}/auth/${type}`, {
         method: 'POST',
         mode: 'cors',
-        cache: 'no-cache',
+        cache: 'default',
         credentials: 'same-origin',
         headers: {
           'Content-Type': 'application/json',
