@@ -23,7 +23,6 @@ export const useChatsLoad = (token: string, url: string | undefined) => {
   useEffect(() => {
     const fetchContacts = async () => {
       try {
-        console.log('prueba' + token);
         const request = await fetch(`${url}/api/conversations`, {
           method: 'GET',
           headers: {
