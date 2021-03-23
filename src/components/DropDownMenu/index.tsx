@@ -15,7 +15,11 @@ export const DropDownMenu = (props: {
         }}
       />
       <DropDownContent>
-        {props.content ? <props.content /> : ''}
+        {props.content ? (
+          <props.content callback={() => setActive(!active)} />
+        ) : (
+          ''
+        )}
       </DropDownContent>
     </DropDown>
   );
